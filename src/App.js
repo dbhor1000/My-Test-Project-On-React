@@ -9,6 +9,13 @@ import { AddTransaction } from './components/AddTransaction';
 import { GlobalProvider } from './context/GlobalState';
 import {Routes, Route, Link, Router} from "react-router-dom";
 import  { PageOne } from './PageOne';
+import  { PageTwo } from './PageTwo';
+
+import  { UserController } from './UserController';
+import  { InitialController } from './Initial Controller';
+import  { EmailController } from './EmailController';
+import  { DefaultController } from './DefaultController';
+import  { AuthController } from './AuthController';
 
 import './App.css';
 
@@ -17,19 +24,29 @@ function App() {
 
       <GlobalProvider>
 
-          <Header/>
-          <Routes>
-              <Route path="/pageOne" element={<PageOne />} />
-          </Routes>
-          <Link to="/pageOne">GoToPageOne</Link>
+          <Link to="/userController">GoToUserController</Link>
+          <br/>
+          <Link to="/initialController">GoToInitialController</Link>
+          <br/>
+          <Link to="/emailController">GoToEmailController</Link>
+          <br/>
+          <Link to="/defaultController">GoToDefaultController</Link>
+          <br/>
+          <Link to="/authController">GoToAuthController</Link>
+          <br/>
+          <Link to="/">GoToMainPage</Link>
 
-          <TestElementOne/>
-          <div className="container">
-              <Balance/>
-              <IncomeExpenses/>
-              <TransactionList/>
-              <AddTransaction/>
-          </div>
+
+          <Routes>
+              <Route path="/userController" element={<UserController/>}/>
+              <Route path="/initialController" element={<InitialController/>}/>
+              <Route path="/emailController" element={<EmailController/>}/>
+              <Route path="/defaultController" element={<DefaultController/>}/>
+              <Route path="/authController" element={<AuthController/>}/>
+              <Route path="/mainPage" element={<App/>}/>
+          </Routes>
+
+
       </GlobalProvider>
   );
 }
